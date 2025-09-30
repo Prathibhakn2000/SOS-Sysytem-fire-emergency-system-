@@ -1,0 +1,1 @@
+create unique index IX_B99A6A6 on fire_SignUpOTP (uuid_[$COLUMN_LENGTH:75$], groupId);

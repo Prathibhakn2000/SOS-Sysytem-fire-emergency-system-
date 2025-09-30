@@ -1,0 +1,7 @@
+Bundle-Name: OTP
+Bundle-SymbolicName: OTP
+Bundle-Version: 1.0.0
+Export-Package: OTP.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"

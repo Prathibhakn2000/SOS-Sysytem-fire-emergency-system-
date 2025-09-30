@@ -1,0 +1,7 @@
+Bundle-Name: VerifyEmailPortlet
+Bundle-SymbolicName: VerifyEmailPortlet
+Bundle-Version: 1.0.0
+Export-Package: VerifyEmailPortlet.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"

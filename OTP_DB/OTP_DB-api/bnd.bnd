@@ -1,0 +1,10 @@
+Bundle-Name: OTP_DB-api
+Bundle-SymbolicName: OTP_DB.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	OTP_DB.exception,\
+	OTP_DB.model,\
+	OTP_DB.service,\
+	OTP_DB.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../OTP_DB-service/service.xml

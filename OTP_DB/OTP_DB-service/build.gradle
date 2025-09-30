@@ -1,0 +1,12 @@
+dependencies {
+	api project(":modules:OTP_DB:OTP_DB-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../OTP_DB-api/src/main/java"
+	testDir = "../OTP_DB-test/src/testIntegration/java"
+}
+
+group = "OTP_DB"
