@@ -62,12 +62,14 @@ if (users != null && !users.isEmpty()) {
 </portlet:renderURL>
 
 <aui:button-row>
-    <aui:button 
-        value="Add User" 
-        onClick="<%= signupURL %>" 
-        cssClass="btn btn-primary btn-lg rounded-pill shadow-sm px-4" 
-    />
+    <button 
+        type="button" 
+        class="btn btn-primary btn-lg rounded-pill shadow-sm px-4"
+        onclick="location.href='<%= signupURL %>'">
+        Add User
+    </button>
 </aui:button-row>
+
 
 
 <%-- <portlet:renderURL var="viewUsersURL">

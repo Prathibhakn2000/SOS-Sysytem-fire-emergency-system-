@@ -14,7 +14,7 @@ String token = (String) renderRequest.getAttribute("token");
 %>
 
 <div class="container">
-    <h2>Enter OTP</h2>
+   <!--  <h2>Enter OTP</h2> -->
     
   <portlet:actionURL var="verifyOtpURL" name="/verify/otp" />
     
