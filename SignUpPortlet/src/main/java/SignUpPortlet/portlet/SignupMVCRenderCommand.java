@@ -1,3 +1,5 @@
+
+
 package SignUpPortlet.portlet;
 
 
@@ -25,6 +27,12 @@ public class SignupMVCRenderCommand implements MVCRenderCommand {
         return "/signUp.jsp";
     }
 }
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,7 @@
 		<column name="email_address" type="String" />
 		<column name="OTP" type="String" />
 		<column name="status" type="boolean" />
+		 
 		
 		
 	</entity>

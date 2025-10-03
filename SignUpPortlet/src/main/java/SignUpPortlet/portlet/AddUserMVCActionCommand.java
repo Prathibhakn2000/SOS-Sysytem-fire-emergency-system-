@@ -6,6 +6,9 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
+import com.liferay.portal.kernel.search.Indexer;
+import com.liferay.portal.kernel.search.IndexerRegistryUtil;
+import com.liferay.portal.kernel.search.RelatedEntryIndexerRegistryUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
@@ -72,8 +75,8 @@ public class AddUserMVCActionCommand implements MVCActionCommand {
              0,                         // creatorUserId
              PortalUtil.getDefaultCompanyId(),
              false,                     // autoPassword
-             password,                  // password1
-             password,                  // password2
+             "asdsadsa",                  // password1
+             "asdsadsa",                  // password2
              true,                      // autoScreenName
              screenName,
              emailAddress,
@@ -86,16 +89,22 @@ public class AddUserMVCActionCommand implements MVCActionCommand {
              true,                      // male
              1, 1, 1990,                // birthday (month, day, year)
              "",                        // jobTitle
-             0, new long[] {},              // groupIds
+             1, new long[] {},              // groupIds
              new long[] {},              // organizationIds
              new long[] {},              // roleIds
              new long[] {},              // userGroupIds
              true,                      // sendEmail
              serviceContext
          );
+         
+         Indexer<User> indexer = IndexerRegistryUtil.nullSafeGetIndexer(User.class);
+         indexer.reindex(user);
+         
+         User updatedUser = UserLocalServiceUtil.updatePassword(user.getUserId(), password, password, false);
+         
 
-            user.setStatus(WorkflowConstants.STATUS_DRAFT); // inactive
-            UserLocalServiceUtil.updateUser(user);
+         updatedUser.setStatus(WorkflowConstants.STATUS_DRAFT); // inactive
+            UserLocalServiceUtil.updateUser(updatedUser);
 
             // Generate activation token
             String token = UUID.randomUUID().toString();
