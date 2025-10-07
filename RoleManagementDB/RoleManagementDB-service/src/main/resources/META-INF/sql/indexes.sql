@@ -1,0 +1,1 @@
+create unique index IX_EFBCD18B on fire_RoleTable (uuid_[$COLUMN_LENGTH:75$], groupId);

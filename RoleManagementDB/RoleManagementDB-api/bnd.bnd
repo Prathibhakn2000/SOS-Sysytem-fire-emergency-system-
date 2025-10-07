@@ -1,0 +1,10 @@
+Bundle-Name: RoleManagementDB-api
+Bundle-SymbolicName: RoleManagementDB.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	RoleManagementDB.exception,\
+	RoleManagementDB.model,\
+	RoleManagementDB.service,\
+	RoleManagementDB.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../RoleManagementDB-service/service.xml

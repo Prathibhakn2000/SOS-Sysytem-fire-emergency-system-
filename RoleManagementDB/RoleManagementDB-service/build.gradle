@@ -1,0 +1,12 @@
+dependencies {
+	api project(":modules:RoleManagementDB:RoleManagementDB-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../RoleManagementDB-api/src/main/java"
+	testDir = "../RoleManagementDB-test/src/testIntegration/java"
+}
+
+group = "RoleManagementDB"
