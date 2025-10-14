@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="EmergencyRequestDB">
+	<namespace>Fire</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity local-service="true" name="EmergencyRequest" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="requestId" primary="true" type="long" id-type="increment"/>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="requestTitle" type="String" />
+		<column name="description" type="String" />
+		<column name="location" type="String" />
+		<column name="exactAddress" type="String" />
+		<column name="attachmentPath" type="String" />
+		<column name="status" type="String" />
+		<column name="allocatedTeamId" type="long" />
+		
+		
+		 <!-- Add this finder -->
+    <finder name="UserId" return-type="Collection">
+        <finder-column name="userId" />
+    </finder>
+</entity>
+
+		
+	
+</service-builder>

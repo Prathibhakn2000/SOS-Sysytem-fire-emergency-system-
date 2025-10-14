@@ -1,0 +1,10 @@
+Bundle-Name: EmergencyRequestDB-api
+Bundle-SymbolicName: EmergencyRequestDB.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	EmergencyRequestDB.exception,\
+	EmergencyRequestDB.model,\
+	EmergencyRequestDB.service,\
+	EmergencyRequestDB.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../EmergencyRequestDB-service/service.xml

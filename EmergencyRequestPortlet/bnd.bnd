@@ -1,0 +1,20 @@
+Bundle-Name: EmergencyRequestPortlet
+Bundle-SymbolicName: EmergencyRequestPortlet
+Bundle-Version: 1.0.0
+
+Export-Package: EmergencyRequestPortlet.constants
+
+Provide-Capability: \
+	liferay.language.resources; \
+		resource.bundle.base.name="content.Language"
+
+Import-Package: \
+    com.liferay.portal.kernel.upload, \
+    com.liferay.document.library.kernel.service, \
+    com.liferay.document.library.kernel.model, \
+    com.liferay.portal.kernel.repository.model, \
+    com.liferay.portal.kernel.util, \
+    com.liferay.portal.kernel.service, \
+    com.liferay.portal.kernel.portlet.bridges.mvc, \
+    com.liferay.portal.kernel.log, \
+    *
