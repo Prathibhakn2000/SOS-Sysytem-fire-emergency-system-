@@ -47,6 +47,7 @@ import org.osgi.service.component.annotations.Component;
 			    public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
 			            throws IOException, PortletException, java.io.IOException {
 
+				
 			        // Fetch all users
 			        List<User> users = UserLocalServiceUtil.getUsers(-1, -1);
 
@@ -54,6 +55,8 @@ import org.osgi.service.component.annotations.Component;
 			        renderRequest.setAttribute("users", users);
 
 			        super.doView(renderRequest, renderResponse);
+			        
+			        
 			    }
 			 
 		  }

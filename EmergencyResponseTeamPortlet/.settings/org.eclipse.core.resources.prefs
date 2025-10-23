@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/resources/META-INF/resources/add_member.jsp=UTF-8
 encoding//src/main/resources/META-INF/resources/view.jsp=UTF-8
 encoding//src/main/resources/META-INF/resources/view_members.jsp=UTF-8
 encoding//src/main/resources/META-INF/resources/view_teams.jsp=UTF-8

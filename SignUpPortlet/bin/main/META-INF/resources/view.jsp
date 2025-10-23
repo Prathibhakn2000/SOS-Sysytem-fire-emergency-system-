@@ -4,6 +4,11 @@
 	<b><liferay-ui:message key="signup.caption"/></b>
 </p>
 
+<%@ page import="com.liferay.portal.kernel.util.ParamUtil" %>
+
+ 
+
+
 
 <%-- <portlet:renderURL var="signupURL">
     <portlet:param name="mvcRenderCommandName" value="/user/add_user" />
@@ -59,6 +64,7 @@ if (users != null && !users.isEmpty()) {
 
 <portlet:renderURL var="signupURL">
     <portlet:param name="mvcRenderCommandName" value="/user/add_user" />
+    <portlet:param name="teamId" value="<%= String.valueOf(teamId) %>" />
 </portlet:renderURL>
 
 <aui:button-row>
