@@ -1,26 +1,36 @@
-<%@ include file="./init.jsp" %>
-<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
+<%@ include file="/init.jsp" %>
 
+<h3>Add Member</h3>
 
-<%@ page import="com.liferay.portal.kernel.util.ParamUtil" %>
+<portlet:actionURL name="/add_member_action" var="addMemberActionURL" />
 
-<%
-    long teamId = ParamUtil.getLong(request, "teamId");
-%>
+<form action="${addMemberActionURL}" method="post" name="fm">
+   <input type="hidden" name="<portlet:namespace />userGroupId" value="${userGroupId != null ? userGroupId : 0}" />
 
-<h3>Add New Member</h3>
-<hr>
+    <div class="form-group">
+        <label>First Name</label>
+        <input name="<portlet:namespace />firstName" class="form-control" required />
+    </div>
 
-<portlet:actionURL var="addMemberActionURL" name="/add_member" />
+    <div class="form-group">
+        <label>Last Name</label>
+        <input name="<portlet:namespace />lastName" class="form-control" required />
+    </div>
 
-<aui:form action="${addMemberActionURL}" method="post">
-    <aui:input name="teamId" type="hidden" value="<%= teamId %>" />
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="<portlet:namespace />email" class="form-control" required />
+    </div>
 
-    <aui:input name="firstName" label="First Name" required="true" />
-    <aui:input name="lastName" label="Last Name" required="true" />
-     <aui:input name="screenName" label="Screen Name" required="true" />
-    <aui:input name="emailAddress" label="Email" required="true" />
-    <aui:input name="password" label="Password" type="password" required="true" />
+    <div class="form-group">
+        <label>Screen Name</label>
+        <input name="<portlet:namespace />screenName" class="form-control" required />
+    </div>
 
-    <aui:button type="submit" value="Add Member" />
-</aui:form>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="<portlet:namespace />password" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-success">Add Member</button>
+</form>

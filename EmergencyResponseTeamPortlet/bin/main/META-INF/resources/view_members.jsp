@@ -1,70 +1,31 @@
 <%@ include file="/init.jsp" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.liferay.portal.kernel.model.User" %>
-<%@ page import="com.liferay.portal.kernel.util.ParamUtil" %>
-<%@ page import="javax.portlet.PortletRequest" %>
-<%@ page import="javax.portlet.PortletURL" %>
-<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%
-    // ✅ Get teamId safely (from request attribute or URL parameter)
-    long teamId = 0;
+<h3>Team: ${team.name}</h3>
 
-    Object teamIdAttr = request.getAttribute("teamId");
-    if (teamIdAttr != null) {
-        teamId = (Long) teamIdAttr;
-    } else {
-        teamId = ParamUtil.getLong(request, "teamId", 0);
-    }
+<portlet:renderURL var="addMemberURL">
+    <portlet:param name="mvcRenderCommandName" value="/add_member" />
+    <portlet:param name="userGroupId" value="${team.userGroupId}" />
+</portlet:renderURL>
 
-    System.out.println("DEBUG: teamId in view_members.jsp = " + teamId);
+<a href="${addMemberURL}" class="btn btn-primary">Add Member</a>
+<br><br>
 
-    // ✅ Get team members (added from render command)
-    List<User> members = (List<User>) request.getAttribute("members");
-%>
-
-<h2>👥 Team Members</h2>
-<hr>
-
-<!-- ✅ Add Member Button -->
-<div class="mb-3 d-flex justify-content-between">
-    <portlet:renderURL var="addMemberURL">
-        <portlet:param name="mvcRenderCommandName" value="/add_member" />
-        <portlet:param name="teamId" value="<%= String.valueOf(teamId) %>" />
-    </portlet:renderURL>
-
-    <button type="button" class="btn btn-success btn-sm" onclick="location.href='${addMemberURL}'">
-        <i class="fa fa-user-plus"></i> Add Member
-    </button>
-</div>
-
-<!-- ✅ Members Table -->
-<table class="table table-bordered table-hover">
-    <thead class="table-light">
+<table class="table table-striped">
+    <thead>
         <tr>
-            <th>Member Name</th>
+            <th>Full Name</th>
             <th>Email</th>
+            <th>Screen Name</th>
         </tr>
     </thead>
     <tbody>
-        <%
-            if (members != null && !members.isEmpty()) {
-                for (User member : members) {
-        %>
-        <tr>
-            <td><%= member.getFullName() %></td>
-            <td><%= member.getEmailAddress() %></td>
-        </tr>
-        <%
-                }
-            } else {
-        %>
-        <tr>
-            <td colspan="2" class="text-center text-muted">No members found.</td>
-        </tr>
-        <%
-            }
-        %>
+        <c:forEach var="member" items="${members}">
+            <tr>
+                <td>${member.fullName}</td>
+                <td>${member.emailAddress}</td>
+                <td>${member.screenName}</td>
+            </tr>
+        </c:forEach>
     </tbody>
 </table>
