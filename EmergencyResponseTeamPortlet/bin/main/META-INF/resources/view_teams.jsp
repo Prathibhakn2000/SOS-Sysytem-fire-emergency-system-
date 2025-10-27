@@ -12,8 +12,8 @@
    class="btn btn-primary">Add Team</a>
 
 <br><br>
-<table class="table table-bordered">
-    <thead>
+ <table class="table table-bordered table-hover" style="width:80%;">
+        <thead class="thead-dark">
         <tr>
             <th>Team Name</th>
             <th>Description</th>

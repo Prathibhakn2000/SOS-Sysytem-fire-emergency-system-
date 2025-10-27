@@ -256,6 +256,20 @@ public interface EmergencyRequestModel
 	public void setExactAddress(String exactAddress);
 
 	/**
+	 * Returns the contact number of this emergency request.
+	 *
+	 * @return the contact number of this emergency request
+	 */
+	public long getContactNumber();
+
+	/**
+	 * Sets the contact number of this emergency request.
+	 *
+	 * @param contactNumber the contact number of this emergency request
+	 */
+	public void setContactNumber(long contactNumber);
+
+	/**
 	 * Returns the attachment path of this emergency request.
 	 *
 	 * @return the attachment path of this emergency request

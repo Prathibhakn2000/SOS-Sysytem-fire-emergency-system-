@@ -54,7 +54,7 @@ public class EmergencyRequestCacheModel
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(31);
+		StringBundler sb = new StringBundler(33);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -80,6 +80,8 @@ public class EmergencyRequestCacheModel
 		sb.append(location);
 		sb.append(", exactAddress=");
 		sb.append(exactAddress);
+		sb.append(", contactNumber=");
+		sb.append(contactNumber);
 		sb.append(", attachmentPath=");
 		sb.append(attachmentPath);
 		sb.append(", status=");
@@ -156,6 +158,8 @@ public class EmergencyRequestCacheModel
 			emergencyRequestImpl.setExactAddress(exactAddress);
 		}
 
+		emergencyRequestImpl.setContactNumber(contactNumber);
+
 		if (attachmentPath == null) {
 			emergencyRequestImpl.setAttachmentPath("");
 		}
@@ -195,6 +199,8 @@ public class EmergencyRequestCacheModel
 		description = objectInput.readUTF();
 		location = objectInput.readUTF();
 		exactAddress = objectInput.readUTF();
+
+		contactNumber = objectInput.readLong();
 		attachmentPath = objectInput.readUTF();
 		status = objectInput.readUTF();
 
@@ -256,6 +262,8 @@ public class EmergencyRequestCacheModel
 			objectOutput.writeUTF(exactAddress);
 		}
 
+		objectOutput.writeLong(contactNumber);
+
 		if (attachmentPath == null) {
 			objectOutput.writeUTF("");
 		}
@@ -285,6 +293,7 @@ public class EmergencyRequestCacheModel
 	public String description;
 	public String location;
 	public String exactAddress;
+	public long contactNumber;
 	public String attachmentPath;
 	public String status;
 	public long allocatedTeamId;

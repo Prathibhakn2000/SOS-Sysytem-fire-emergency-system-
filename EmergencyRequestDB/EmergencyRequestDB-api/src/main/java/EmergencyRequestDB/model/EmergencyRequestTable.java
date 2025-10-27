@@ -52,6 +52,9 @@ public class EmergencyRequestTable extends BaseTable<EmergencyRequestTable> {
 	public final Column<EmergencyRequestTable, String> exactAddress =
 		createColumn(
 			"exactAddress", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
+	public final Column<EmergencyRequestTable, Long> contactNumber =
+		createColumn(
+			"contactNumber", Long.class, Types.BIGINT, Column.FLAG_DEFAULT);
 	public final Column<EmergencyRequestTable, String> attachmentPath =
 		createColumn(
 			"attachmentPath", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);

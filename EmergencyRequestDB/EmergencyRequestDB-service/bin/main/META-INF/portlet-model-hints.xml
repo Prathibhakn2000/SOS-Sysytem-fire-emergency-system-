@@ -14,6 +14,7 @@
 		<field name="description" type="String" />
 		<field name="location" type="String" />
 		<field name="exactAddress" type="String" />
+		<field name="contactNumber" type="long" />
 		<field name="attachmentPath" type="String" />
 		<field name="status" type="String" />
 		<field name="allocatedTeamId" type="long" />

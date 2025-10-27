@@ -28,9 +28,11 @@
 		<column name="description" type="String" />
 		<column name="location" type="String" />
 		<column name="exactAddress" type="String" />
+	    <column name="contactNumber" type="long" />
 		<column name="attachmentPath" type="String" />
 		<column name="status" type="String" />
 		<column name="allocatedTeamId" type="long" />
+	
 		
 		
 		 <!-- Add this finder -->

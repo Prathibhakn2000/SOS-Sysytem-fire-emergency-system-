@@ -56,6 +56,7 @@ public class SubmitEmergencyRequestMVCActionCommand extends BaseMVCActionCommand
             String description = ParamUtil.getString(actionRequest, "description");
             String location = ParamUtil.getString(actionRequest, "location");
             String exactAddress = ParamUtil.getString(actionRequest, "exactAddress");
+            long contactNumber = ParamUtil.getLong(actionRequest, "contactNumber");
 
             // Handle file upload
             UploadPortletRequest uploadRequest = PortalUtil.getUploadPortletRequest(actionRequest);
@@ -114,6 +115,7 @@ public class SubmitEmergencyRequestMVCActionCommand extends BaseMVCActionCommand
             emergencyRequest.setDescription(description);
             emergencyRequest.setLocation(location);
             emergencyRequest.setExactAddress(exactAddress);
+            emergencyRequest.setContactNumber(contactNumber);
             emergencyRequest.setAttachmentPath(attachmentPath);
             emergencyRequest.setStatus("Pending");
 

@@ -46,6 +46,7 @@ public class EmergencyRequestWrapper
 		attributes.put("description", getDescription());
 		attributes.put("location", getLocation());
 		attributes.put("exactAddress", getExactAddress());
+		attributes.put("contactNumber", getContactNumber());
 		attributes.put("attachmentPath", getAttachmentPath());
 		attributes.put("status", getStatus());
 		attributes.put("allocatedTeamId", getAllocatedTeamId());
@@ -127,6 +128,12 @@ public class EmergencyRequestWrapper
 			setExactAddress(exactAddress);
 		}
 
+		Long contactNumber = (Long)attributes.get("contactNumber");
+
+		if (contactNumber != null) {
+			setContactNumber(contactNumber);
+		}
+
 		String attachmentPath = (String)attributes.get("attachmentPath");
 
 		if (attachmentPath != null) {
@@ -179,6 +186,16 @@ public class EmergencyRequestWrapper
 	@Override
 	public long getCompanyId() {
 		return model.getCompanyId();
+	}
+
+	/**
+	 * Returns the contact number of this emergency request.
+	 *
+	 * @return the contact number of this emergency request
+	 */
+	@Override
+	public long getContactNumber() {
+		return model.getContactNumber();
 	}
 
 	/**
@@ -354,6 +371,16 @@ public class EmergencyRequestWrapper
 	@Override
 	public void setCompanyId(long companyId) {
 		model.setCompanyId(companyId);
+	}
+
+	/**
+	 * Sets the contact number of this emergency request.
+	 *
+	 * @param contactNumber the contact number of this emergency request
+	 */
+	@Override
+	public void setContactNumber(long contactNumber) {
+		model.setContactNumber(contactNumber);
 	}
 
 	/**

@@ -71,8 +71,8 @@ public class EmergencyRequestModelImpl
 		{"createDate", Types.TIMESTAMP}, {"modifiedDate", Types.TIMESTAMP},
 		{"requestTitle", Types.VARCHAR}, {"description", Types.VARCHAR},
 		{"location", Types.VARCHAR}, {"exactAddress", Types.VARCHAR},
-		{"attachmentPath", Types.VARCHAR}, {"status", Types.VARCHAR},
-		{"allocatedTeamId", Types.BIGINT}
+		{"contactNumber", Types.BIGINT}, {"attachmentPath", Types.VARCHAR},
+		{"status", Types.VARCHAR}, {"allocatedTeamId", Types.BIGINT}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -91,13 +91,14 @@ public class EmergencyRequestModelImpl
 		TABLE_COLUMNS_MAP.put("description", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("location", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("exactAddress", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("contactNumber", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("attachmentPath", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("status", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("allocatedTeamId", Types.BIGINT);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table Fire_EmergencyRequest (uuid_ VARCHAR(75) null,requestId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,requestTitle VARCHAR(75) null,description VARCHAR(75) null,location VARCHAR(75) null,exactAddress VARCHAR(75) null,attachmentPath VARCHAR(75) null,status VARCHAR(75) null,allocatedTeamId LONG)";
+		"create table Fire_EmergencyRequest (uuid_ VARCHAR(75) null,requestId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,requestTitle VARCHAR(75) null,description VARCHAR(75) null,location VARCHAR(75) null,exactAddress VARCHAR(75) null,contactNumber LONG,attachmentPath VARCHAR(75) null,status VARCHAR(75) null,allocatedTeamId LONG)";
 
 	public static final String TABLE_SQL_DROP =
 		"drop table Fire_EmergencyRequest";
@@ -278,6 +279,8 @@ public class EmergencyRequestModelImpl
 			attributeGetterFunctions.put(
 				"exactAddress", EmergencyRequest::getExactAddress);
 			attributeGetterFunctions.put(
+				"contactNumber", EmergencyRequest::getContactNumber);
+			attributeGetterFunctions.put(
 				"attachmentPath", EmergencyRequest::getAttachmentPath);
 			attributeGetterFunctions.put("status", EmergencyRequest::getStatus);
 			attributeGetterFunctions.put(
@@ -348,6 +351,10 @@ public class EmergencyRequestModelImpl
 				"exactAddress",
 				(BiConsumer<EmergencyRequest, String>)
 					EmergencyRequest::setExactAddress);
+			attributeSetterBiConsumers.put(
+				"contactNumber",
+				(BiConsumer<EmergencyRequest, Long>)
+					EmergencyRequest::setContactNumber);
 			attributeSetterBiConsumers.put(
 				"attachmentPath",
 				(BiConsumer<EmergencyRequest, String>)
@@ -638,6 +645,21 @@ public class EmergencyRequestModelImpl
 
 	@JSON
 	@Override
+	public long getContactNumber() {
+		return _contactNumber;
+	}
+
+	@Override
+	public void setContactNumber(long contactNumber) {
+		if (_columnOriginalValues == Collections.EMPTY_MAP) {
+			_setColumnOriginalValues();
+		}
+
+		_contactNumber = contactNumber;
+	}
+
+	@JSON
+	@Override
 	public String getAttachmentPath() {
 		if (_attachmentPath == null) {
 			return "";
@@ -765,6 +787,7 @@ public class EmergencyRequestModelImpl
 		emergencyRequestImpl.setDescription(getDescription());
 		emergencyRequestImpl.setLocation(getLocation());
 		emergencyRequestImpl.setExactAddress(getExactAddress());
+		emergencyRequestImpl.setContactNumber(getContactNumber());
 		emergencyRequestImpl.setAttachmentPath(getAttachmentPath());
 		emergencyRequestImpl.setStatus(getStatus());
 		emergencyRequestImpl.setAllocatedTeamId(getAllocatedTeamId());
@@ -802,6 +825,8 @@ public class EmergencyRequestModelImpl
 			this.<String>getColumnOriginalValue("location"));
 		emergencyRequestImpl.setExactAddress(
 			this.<String>getColumnOriginalValue("exactAddress"));
+		emergencyRequestImpl.setContactNumber(
+			this.<Long>getColumnOriginalValue("contactNumber"));
 		emergencyRequestImpl.setAttachmentPath(
 			this.<String>getColumnOriginalValue("attachmentPath"));
 		emergencyRequestImpl.setStatus(
@@ -960,6 +985,8 @@ public class EmergencyRequestModelImpl
 			emergencyRequestCacheModel.exactAddress = null;
 		}
 
+		emergencyRequestCacheModel.contactNumber = getContactNumber();
+
 		emergencyRequestCacheModel.attachmentPath = getAttachmentPath();
 
 		String attachmentPath = emergencyRequestCacheModel.attachmentPath;
@@ -1053,6 +1080,7 @@ public class EmergencyRequestModelImpl
 	private String _description;
 	private String _location;
 	private String _exactAddress;
+	private long _contactNumber;
 	private String _attachmentPath;
 	private String _status;
 	private long _allocatedTeamId;
@@ -1099,6 +1127,7 @@ public class EmergencyRequestModelImpl
 		_columnOriginalValues.put("description", _description);
 		_columnOriginalValues.put("location", _location);
 		_columnOriginalValues.put("exactAddress", _exactAddress);
+		_columnOriginalValues.put("contactNumber", _contactNumber);
 		_columnOriginalValues.put("attachmentPath", _attachmentPath);
 		_columnOriginalValues.put("status", _status);
 		_columnOriginalValues.put("allocatedTeamId", _allocatedTeamId);
@@ -1149,11 +1178,13 @@ public class EmergencyRequestModelImpl
 
 		columnBitmasks.put("exactAddress", 2048L);
 
-		columnBitmasks.put("attachmentPath", 4096L);
+		columnBitmasks.put("contactNumber", 4096L);
 
-		columnBitmasks.put("status", 8192L);
+		columnBitmasks.put("attachmentPath", 8192L);
 
-		columnBitmasks.put("allocatedTeamId", 16384L);
+		columnBitmasks.put("status", 16384L);
+
+		columnBitmasks.put("allocatedTeamId", 32768L);
 
 		_columnBitmasks = Collections.unmodifiableMap(columnBitmasks);
 	}

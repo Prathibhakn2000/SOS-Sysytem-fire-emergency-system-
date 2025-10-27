@@ -9,6 +9,8 @@ Provide-Capability: \
 		resource.bundle.base.name="content.Language"
 
 Import-Package: \
+    javax.portlet, \
+    javax.portlet.*, \
     com.liferay.portal.kernel.upload, \
     com.liferay.document.library.kernel.service, \
     com.liferay.document.library.kernel.model, \
@@ -17,4 +19,6 @@ Import-Package: \
     com.liferay.portal.kernel.service, \
     com.liferay.portal.kernel.portlet.bridges.mvc, \
     com.liferay.portal.kernel.log, \
+    EmergencyRequestDB.model, \
+    EmergencyRequestDB.service, \
     *

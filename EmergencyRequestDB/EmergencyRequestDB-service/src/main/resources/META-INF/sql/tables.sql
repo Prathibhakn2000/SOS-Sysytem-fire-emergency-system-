@@ -11,6 +11,7 @@ create table Fire_EmergencyRequest (
 	description VARCHAR(75) null,
 	location VARCHAR(75) null,
 	exactAddress VARCHAR(75) null,
+	contactNumber LONG,
 	attachmentPath VARCHAR(75) null,
 	status VARCHAR(75) null,
 	allocatedTeamId LONG

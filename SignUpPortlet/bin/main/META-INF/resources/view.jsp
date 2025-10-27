@@ -29,8 +29,8 @@
 
 <h2>All Users</h2>
 
-<table class="table table-bordered table-hover">
-    <thead>
+ <table class="table table-bordered table-hover" style="width:80%;">
+        <thead class="thead-dark">
         <tr>
             <th>UserId</th>
             <th>Full Name</th>
@@ -64,7 +64,7 @@ if (users != null && !users.isEmpty()) {
 
 <portlet:renderURL var="signupURL">
     <portlet:param name="mvcRenderCommandName" value="/user/add_user" />
-    <portlet:param name="teamId" value="<%= String.valueOf(teamId) %>" />
+ <%-- <portlet:param name="teamId" value="<%= String.valueOf(teamId) %>" />  --%>
 </portlet:renderURL>
 
 <aui:button-row>

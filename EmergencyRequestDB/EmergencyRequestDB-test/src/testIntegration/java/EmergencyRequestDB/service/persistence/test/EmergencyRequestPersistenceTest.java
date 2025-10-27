@@ -140,6 +140,8 @@ public class EmergencyRequestPersistenceTest {
 
 		newEmergencyRequest.setExactAddress(RandomTestUtil.randomString());
 
+		newEmergencyRequest.setContactNumber(RandomTestUtil.nextLong());
+
 		newEmergencyRequest.setAttachmentPath(RandomTestUtil.randomString());
 
 		newEmergencyRequest.setStatus(RandomTestUtil.randomString());
@@ -186,6 +188,9 @@ public class EmergencyRequestPersistenceTest {
 		Assert.assertEquals(
 			existingEmergencyRequest.getExactAddress(),
 			newEmergencyRequest.getExactAddress());
+		Assert.assertEquals(
+			existingEmergencyRequest.getContactNumber(),
+			newEmergencyRequest.getContactNumber());
 		Assert.assertEquals(
 			existingEmergencyRequest.getAttachmentPath(),
 			newEmergencyRequest.getAttachmentPath());
@@ -260,7 +265,8 @@ public class EmergencyRequestPersistenceTest {
 			true, "companyId", true, "userId", true, "userName", true,
 			"createDate", true, "modifiedDate", true, "requestTitle", true,
 			"description", true, "location", true, "exactAddress", true,
-			"attachmentPath", true, "status", true, "allocatedTeamId", true);
+			"contactNumber", true, "attachmentPath", true, "status", true,
+			"allocatedTeamId", true);
 	}
 
 	@Test
@@ -563,6 +569,8 @@ public class EmergencyRequestPersistenceTest {
 		emergencyRequest.setLocation(RandomTestUtil.randomString());
 
 		emergencyRequest.setExactAddress(RandomTestUtil.randomString());
+
+		emergencyRequest.setContactNumber(RandomTestUtil.nextLong());
 
 		emergencyRequest.setAttachmentPath(RandomTestUtil.randomString());
 
