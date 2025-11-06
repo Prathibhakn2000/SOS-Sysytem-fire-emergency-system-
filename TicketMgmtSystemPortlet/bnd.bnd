@@ -1,0 +1,7 @@
+Bundle-Name: TicketMgmtSystemPortlet
+Bundle-SymbolicName: TicketMgmtSystemPortlet
+Bundle-Version: 1.0.0
+Export-Package: TicketMgmtSystemPortlet.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"

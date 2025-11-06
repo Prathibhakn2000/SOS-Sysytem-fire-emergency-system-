@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="TicketMgmtDB">
+	<namespace>ATS</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity local-service="true" name="TicketMgmt" remote-service="false" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="ticket_id" primary="true" type="long" id-type="increment"/>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="busNumber" type="String" />
+		<column name="fromLocation" type="String" />
+		<column name="toLocation" type="String" />
+		<column name="journeyDate" type="Date" />
+		<column name="seatNumber" type="int" />
+		<column name="fareAmount" type="Long" />
+		
+
+		
+	</entity>
+</service-builder>

@@ -1,0 +1,7 @@
+apiDir: "../TicketMgmtHeadlessAPI-api/src/main/java"
+apiPackagePath: "TicketMgmtHeadlessAPI"
+application:
+    baseURI: "/TicketMgmtHeadlessAPI"
+    className: "TicketMgmtHeadlessAPIApplication"
+    name: "TicketMgmtHeadlessAPI"
+author: "prath"

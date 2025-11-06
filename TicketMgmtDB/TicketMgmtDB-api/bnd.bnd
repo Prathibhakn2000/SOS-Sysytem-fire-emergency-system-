@@ -1,0 +1,10 @@
+Bundle-Name: TicketMgmtDB-api
+Bundle-SymbolicName: TicketMgmtDB.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	TicketMgmtDB.exception,\
+	TicketMgmtDB.model,\
+	TicketMgmtDB.service,\
+	TicketMgmtDB.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../TicketMgmtDB-service/service.xml

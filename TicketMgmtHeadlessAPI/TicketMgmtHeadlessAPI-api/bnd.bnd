@@ -1,0 +1,6 @@
+Bundle-Name: TicketMgmtHeadlessAPI-api
+Bundle-SymbolicName: TicketMgmtHeadlessAPI.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	TicketMgmtHeadlessAPI.dto.v1_0,\
+	TicketMgmtHeadlessAPI.resource.v1_0

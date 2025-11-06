@@ -1,0 +1,221 @@
+openapi: 3.0.1
+info:
+  title: "TicketMgmtHeadlessAPI"
+  description: "TicketMgmtHeadlessAPI REST API"
+  version: v1.0
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+components:
+  schemas:
+    TicketMgmt:
+      description: "Ticket management APIs."
+      type: object
+      properties:
+        ticketId:
+          type: integer
+          format: int64
+        groupId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        userName:
+          type: string
+        createDate:
+          type: string
+          format: date-time
+        modifiedDate:
+          type: string
+          format: date-time
+        busNumber:
+          type: string
+        fromLocation:
+          type: string
+        toLocation:
+          type: string
+        journeyDate:
+          type: string
+          format: date
+        seatNumber:
+          type: integer
+        fareAmount:
+          type: integer
+          format: int64
+
+paths:
+  "/get-tickets":
+    get:
+      operationId: getTickets
+      tags: ["TicketMgmt"]
+      description: "Retrieve all booked tickets."
+      summary: "Get all tickets"
+      responses:
+        '200':
+          description: "Tickets listed successfully"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TicketMgmt"
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TicketMgmt"
+        '403':
+          description: "No tickets found"
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+        '404':
+          description: "API not found"
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+
+  "/add-ticket":
+    post:
+      operationId: addTicket
+      tags: ["TicketMgmt"]
+      description: "Book a new ticket"
+      summary: "Add ticket"
+      requestBody:
+        description: "Add new ticket"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TicketMgmt"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/TicketMgmt"
+      responses:
+        '200':
+          description: "Ticket added successfully"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TicketMgmt"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/TicketMgmt"
+        '403':
+          description: "Failed to add ticket"
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+        '404':
+          description: "API not found"
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+
+  "/update-ticket":
+    put:
+      operationId: updateTicket
+      tags: ["TicketMgmt"]
+      description: "Update existing ticket details"
+      summary: "Update ticket"
+      requestBody:
+        description: "Update ticket"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TicketMgmt"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/TicketMgmt"
+      responses:
+        '200':
+          description: "Ticket updated successfully"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TicketMgmt"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/TicketMgmt"
+        '403':
+          description: "Failed to update ticket"
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+        '404':
+          description: "API not found"
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+
+  "/delete-ticket":
+    delete:
+      operationId: deleteTicket
+      tags: ["TicketMgmt"]
+      description: "Delete ticket by ID"
+      summary: "Delete ticket"
+      parameters:
+        - in: query
+          name: ticketId
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "Ticket deleted successfully"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TicketMgmt"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/TicketMgmt"
+        '403':
+          description: "Failed to delete ticket"
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object
+        '404':
+          description: "API not found"
+          content:
+            application/json:
+              schema:
+                type: object
+            application/xml:
+              schema:
+                type: object

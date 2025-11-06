@@ -1,0 +1,1 @@
+create unique index IX_A72AF368 on ATS_TicketMgmt (uuid_[$COLUMN_LENGTH:75$], groupId);

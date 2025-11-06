@@ -1,0 +1,12 @@
+dependencies {
+	api project(":modules:TicketMgmtDB:TicketMgmtDB-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../TicketMgmtDB-api/src/main/java"
+	testDir = "../TicketMgmtDB-test/src/testIntegration/java"
+}
+
+group = "TicketMgmtDB"
