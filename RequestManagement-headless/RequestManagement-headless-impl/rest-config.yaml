@@ -1,0 +1,7 @@
+apiDir: "../RequestManagement-headless-api/src/main/java"
+apiPackagePath: "RequestManagement.headless"
+application:
+    baseURI: "/RequestManagement-headless"
+    className: "RequestManagementHeadlessApplication"
+    name: "RequestManagementHeadless"
+author: "prath"

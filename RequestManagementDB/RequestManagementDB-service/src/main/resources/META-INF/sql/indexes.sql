@@ -1,0 +1,1 @@
+create index IX_AF1371DB on Fire_EmrgcyRequest (uuid_[$COLUMN_LENGTH:75$]);

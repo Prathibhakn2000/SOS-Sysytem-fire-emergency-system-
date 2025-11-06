@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="RequestManagementDB.model.EmrgcyRequest">
+		<field name="uuid" type="String" />
+		<field name="requestId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="title" type="String" />
+		<field name="description" type="String" />
+		<field name="location" type="String" />
+		<field name="status" type="String" />
+		<field name="assignedTeam" type="String" />
+		<field name="requesterUserId" type="long" />
+	</model>
+</model-hints>

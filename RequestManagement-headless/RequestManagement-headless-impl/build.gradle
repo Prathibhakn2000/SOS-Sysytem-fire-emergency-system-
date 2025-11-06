@@ -1,0 +1,13 @@
+dependencies {
+	api project(":modules:RequestManagement-headless:RequestManagement-headless-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+	
+	compileOnly group: "javax.annotation", name: "javax.annotation-api", version: "1.3.2"
+	
+	 compileOnly project(":modules:RequestManagementDB:RequestManagementDB-api")
+    
+
+}
+
+group = "RequestManagement.headless"

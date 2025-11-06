@@ -1,0 +1,6 @@
+Bundle-Name: RequestManagement-headless-api
+Bundle-SymbolicName: RequestManagement.headless.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	RequestManagement.headless.dto.v1_0,\
+	RequestManagement.headless.resource.v1_0

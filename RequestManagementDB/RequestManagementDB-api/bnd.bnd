@@ -1,0 +1,10 @@
+Bundle-Name: RequestManagementDB-api
+Bundle-SymbolicName: RequestManagementDB.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	RequestManagementDB.exception,\
+	RequestManagementDB.model,\
+	RequestManagementDB.service,\
+	RequestManagementDB.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../RequestManagementDB-service/service.xml

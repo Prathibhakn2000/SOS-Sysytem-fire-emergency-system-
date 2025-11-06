@@ -1,0 +1,3 @@
+Bundle-Name: RequestManagement-headless-impl
+Bundle-SymbolicName: RequestManagement.headless.impl
+Bundle-Version: 1.0.0

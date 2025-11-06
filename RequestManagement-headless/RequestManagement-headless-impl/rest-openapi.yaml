@@ -1,0 +1,212 @@
+components:
+  schemas:
+    EmrgcyRequest:
+      description: 
+        Represent emergency request APIs.
+      properties:
+        requestId:
+          type: integer
+          format: int64
+        companyId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        userName:
+          type: string
+        createDate:
+          type: string
+          format: date-time
+        modifiedDate:
+          type: string
+          format: date-time
+        title:
+          type: string
+        description:
+          type: string
+        location:
+          type: string
+        status:
+          type: string
+        assignedTeam:
+          type: string
+        requesterUserId:
+          type: integer
+          format: int64
+        message:
+          type: object
+          readOnly: true
+        data:
+          type: object
+      type: object
+
+info:
+  description: "RequestManagementHeadless REST API"
+  license:
+      name: "Apache 2.0"
+      url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+  title: "RequestManagementHeadless"
+  version: v1.0
+
+openapi: 3.0.1
+
+paths:
+  "/emrgcy-requests":
+    get:
+      operationId: getEmrgcyRequests
+      tags: ["EmrgcyRequest"]
+      description: get emergency requests
+      summary: "get emergency requests"
+      responses:
+        '200':
+          description: Emergency requests listed successfully
+          content:
+            application/json:
+              schema:
+                  $ref: "#/components/schemas/EmrgcyRequest"
+            application/xml:
+              schema:
+                  $ref: "#/components/schemas/EmrgcyRequest"
+        '403':
+          description: No emergency requests were found
+        '404':
+          description: API not found
+
+  "/emrgcy-requests/add":
+    post:
+      operationId: addEmrgcyRequest
+      tags: ["EmrgcyRequest"]
+      description: add emergency request
+      summary: "add emergency request"
+      requestBody:
+        description: add emergency request
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: "#/components/schemas/EmrgcyRequest"
+          application/xml:
+            schema:
+                $ref: "#/components/schemas/EmrgcyRequest"
+      responses:
+        '200':
+          description: Emergency request added successfully
+          content:
+            application/json:
+              schema:
+                  $ref: "#/components/schemas/EmrgcyRequest"
+            application/xml:
+              schema:
+                  $ref: "#/components/schemas/EmrgcyRequest"
+        '403':
+          description: Emergency request not added
+        '404':
+          description: API not found
+
+  "/emrgcy-requests/{requestId}":
+    put: 
+      operationId: updateEmrgcyRequest
+      tags: ["EmrgcyRequest"]
+      description: update emergency request
+      summary: "update emergency request"
+      parameters:
+      - name: requestId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: update emergency request
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: "#/components/schemas/EmrgcyRequest"
+          application/xml:
+            schema:
+                $ref: "#/components/schemas/EmrgcyRequest"
+      responses:
+        '200':
+          description: Emergency request updated successfully
+          content:
+            application/json:
+              schema:
+                  $ref: "#/components/schemas/EmrgcyRequest"
+            application/xml:
+              schema:
+                  $ref: "#/components/schemas/EmrgcyRequest"
+        '403':
+          description: No emergency request were found
+        '404':
+          description: API not found
+
+    patch:
+      operationId: patchEmrgcyRequest
+      tags: ["EmrgcyRequest"]
+      description: partially update emergency request
+      summary: "partially update emergency request"
+      parameters:
+      - name: requestId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: fields to be updated in emergency request
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: "#/components/schemas/EmrgcyRequest"
+          application/xml:
+            schema:
+                $ref: "#/components/schemas/EmrgcyRequest"
+      responses:
+        '200':
+          description: Emergency request updated successfully (partial update)
+          content:
+            application/json:
+              schema:
+                  $ref: "#/components/schemas/EmrgcyRequest"
+            application/xml:
+              schema:
+                  $ref: "#/components/schemas/EmrgcyRequest"
+        '400':
+          description: Invalid input for patch request
+        '403':
+          description: No emergency request found to update
+        '404':
+          description: API not found
+
+  "/emrgcy-requests/delete":
+    delete:
+      parameters:
+        - in: query
+          name: requestId
+          required: true
+          schema:
+            type: integer
+            format: int64
+      operationId: deleteEmrgcyRequest
+      tags: ["EmrgcyRequest"]
+      description: delete emergency request
+      summary: "delete emergency request"
+      responses:
+        '200':
+          description: Emergency request deleted successfully
+          content:
+            application/json:
+              schema:
+                  $ref: "#/components/schemas/EmrgcyRequest"
+            application/xml:
+              schema:
+                  $ref: "#/components/schemas/EmrgcyRequest"
+        '403':
+          description: No emergency request were found
+        '404':
+          description: API not found
+     
+  

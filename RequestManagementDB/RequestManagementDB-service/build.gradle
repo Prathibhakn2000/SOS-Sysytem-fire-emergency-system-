@@ -1,0 +1,12 @@
+dependencies {
+	api project(":modules:RequestManagementDB:RequestManagementDB-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../RequestManagementDB-api/src/main/java"
+	testDir = "../RequestManagementDB-test/src/testIntegration/java"
+}
+
+group = "RequestManagementDB"
